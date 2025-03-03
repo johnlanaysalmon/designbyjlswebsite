@@ -63,3 +63,19 @@ footer {
     transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
+.shorts-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.shorts-container iframe {
+    width: 100%;
+    max-width: 315px;  /* Keeps Shorts in a vertical format */
+    height: 560px;  /* Standard Shorts height */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+
