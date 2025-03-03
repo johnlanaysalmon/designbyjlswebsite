@@ -78,4 +78,14 @@ footer {
     margin: 0 auto;
 }
 
+.icon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px; /* Adjust padding as needed */
+}
 
+.top-left-icon {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
