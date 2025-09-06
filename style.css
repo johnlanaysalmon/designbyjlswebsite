@@ -1,130 +1,98 @@
+/* Global Reset and Font */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: Arial, sans-serif; */
-    font-family: 'Trebuchet MS', Trebuchet MS, sans-serif; /* Set the font-family here */
-
+    font-family: 'Trebuchet MS', Trebuchet MS, sans-serif;
 }
 
+/* Body Layout */
 body {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
-    padding-top: 40px; /* Adjust padding to account for fixed header */;
+    padding-top: 40px; /* Adjust padding to account for fixed header */
 }
 
-header {
-    background-color: #000000;
-    color: white;
-    padding: 15px;
+/* Fixed Navbar Container */
+.navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    background-color: #000000;
+    color: white;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    margin-bottom: 10px; /* Adjust this value to add space between the title and the links */
+/* Flex Layout for Navbar */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    position: relative;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Logo Container (Left) */
+.icon-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.top-left-icon {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Centered Title */
+.navbar-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0;
-    /* display: flex; */
-    gap: 15px; /* Adjust this value to add space between the links */
+    font-size: 24px;
+    white-space: nowrap;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+/* Nav Links (Right) */
+.navbar-links {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li a {
+.navbar-links a {
     color: white;
     text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.2s;
 }
 
-.hero {
-    padding: 50px 20px;
-    background-color: #000000;
+.navbar-links a:hover {
+    opacity: 0.75;
 }
 
+/* Hero + Content Sections */
+.hero,
 .content {
     padding: 50px 20px;
     background-color: #000000;
 }
 
+/* Footer */
 footer {
     background-color: #000000;
-    color: rgb(255, 255, 255);
+    color: white;
     padding: 10px;
     margin-top: 20px;
 }
 
-.image-container {
-    position: relative;
-    display: inline-block;
-}
-
-.project-img {
-    width: 100%;
-    max-width: 600px;  /* Adjust max size */
-    height: auto;  /* Keeps aspect ratio */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 0px 0;
-    transition: transform 0.2s ease-in-out;
-}
-
-.project-img:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    pointer-events: none; /* Ensures the text does not interfere with clicking the image */
-}
-
-.shorts-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.shorts-container iframe {
-    width: 100%;
-    max-width: 315px;  /* Keeps Shorts in a vertical format */
-    height: 560px;  /* Standard Shorts height */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin: 0 auto;
-}
-
-.icon-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px; /* Adjust padding as needed */
-}
-
-.top-left-icon {
-    width: 90px; /* Adjust size as needed */
-    height: auto;
-}
-
-.active-link {
-    font-weight: bold;
-}
-
+/* Button Styles */
 button {
     margin-top: 20px;
     padding: 10px 15px;
@@ -138,62 +106,28 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* Vertical Centering Container */
 .vertical-align {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Adjust height as needed */
+    height: 100vh;
 }
 
-.gallery {
-    margin-top: 60px; /* Moves the gallery down */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two images per row */
-    gap: 20px; /* Adjust as needed */
-    row-gap: 15px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    /* margin: 2px auto; */
-}
-
-.gallery a {
-    display: block;
-}
-
-.gallery-img {
-    width: 100%;  /* Ensure images scale properly */
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.gallery-img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
-
-/* Lazy loading fade-in effect */
-.lazy-image {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.lazy-image.loaded {
-    opacity: 1;
-}
+/* Overlay Container for Text on Hover */
 .overlay-container {
     position: relative;
     display: inline-block;
 }
 
-/* Centered Overlay Text */
 .overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centers text */
-    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 10px 20px;
     font-size: 18px;
@@ -202,7 +136,102 @@ button:hover {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Show Overlay Text on Hover */
 .overlay-container:hover .overlay-text {
     opacity: 1;
+}
+
+/* Shorts Embed (YouTube) */
+.shorts-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.shorts-container iframe {
+    width: 100%;
+    max-width: 315px;
+    height: 560px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Lazy Loading */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Active Link Style */
+.active-link {
+    font-weight: bold;
+}
+
+/* Gallery Grid */
+.gallery {
+  margin-top: 10px;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: repeat(2, 1fr); /* ✅ Forces 2 equal-width columns */
+  gap: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90vh;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Single column on narrow screens */
+  }
+}
+
+.page-title {
+  margin-top: 40px;  /* or whatever your header height is + spacing */
+  font-size: 32px;
+  color: white;
+  text-align: center;
 }

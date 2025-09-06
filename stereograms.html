@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Modular Header -->
+  <div id="header-placeholder"></div>
+   <script src="header.js"></script>
+    <h1 class="page-title">Stereograms</h1>
+
+  <!-- Gallery Grid -->
+  <div class="gallery">
+    <!-- Repeat this block 10x with different images -->
+    <div class="overlay-container">
+      <img src="images/atat_img_0.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/astronaut_img_0_1740278876.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/airbus345_img_1_1739422170.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/chalice_img_0_1740277686.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/skateboard_img_0_1740971657.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/candles.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/tennis.webp" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+
+    <!-- Repeat for img2.webp ... img10.webp -->
+    <!-- You can use a loop later in JS if you want -->
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+  </div>
+
+  <script src="scripts/modal.js"></script>
+</body>
+</html>
