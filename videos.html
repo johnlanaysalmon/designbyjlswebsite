@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 10px 20px 20px; /* add top padding for fixed header */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.78%; /* 9:16 aspect ratio (Shorts, TikToks) */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Modular Header -->
+  <div id="header-placeholder"></div>
+   <script src="header.js"></script>
+  <h1 class="page-title">Animated Stereograms</h1>
+
+  <div class="video-gallery">
+
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/c90138854d750e7cbc9985e5ae911928/68d22094/video/tos/useast8/tos-useast8-pve-0068-tx2/oUnxgML7HlqlegQ1IAGARUW7rvOAeCCEaqIFea/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2230&bt=1115&cs=0&ds=6&ft=GS-jnInz7ThQgZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=ODxmZDlnZjc5NDU4Z2U1OkBpanI4eHg5cjdvdjMzaTgzNEBeL2EtNC1eNjYxXy1fMjNiYSMubF5xMmRrMmpgLS1kLzJzcw%3D%3D&vvpl=1&l=2025092222215740C2AA607931610434BF&btag=e00088000" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/e86f599f109f6937938c25bf97bfb67c/68d220bb/video/tos/useast8/tos-useast8-ve-0068c003-tx2/oUnEcOnEv9tDYB1wANV78fEEFCAV4QLep5EyWI/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=7892&bt=3946&cs=0&ds=6&ft=GS-jnInz7Th0gZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=OTtoZmk3O2U2Nzc7Zzk5OkBpamduaXg5cjZ2djMzaTgzNEAvNi5jYjZiXjYxLjNfYF9fYSNwNmJtMmRjNGtgLS1kLzJzcw%3D%3D&vvpl=1&l=20250922222236154887160FFFE103F7C9&btag=e00088000" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/0b963153c6acd060502a0d9d4f8f428f/68d220ec/video/tos/useast8/tos-useast8-ve-0068c002-tx2/ooIiSdE0liw7RdVQAkQG4AhC4qBXAKsZxzAPN/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=6760&bt=3380&cs=0&ds=6&ft=GS-jnInz7Th2-ZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=ZDxoZGc4OTQ6aThnZGg3aEBpamQzam45cnVzdjMzaTgzNEBjNDEvMmE2XzAxL2IyXy8yYSNiMTRiMmQ0MmxgLS1kLzJzcw%3D%3D&vvpl=1&l=2025092222233959019B107287BA03EDFE&btag=e00088000" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/b38aabb0edadac418febeacff4d2acdb/68d22142/video/tos/useast8/tos-useast8-ve-0068c003-tx2/ooBKAAQQIFRGyCQQInEDfhfCEZSPAIOdEVBFDV/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=3314&bt=1657&cs=0&ds=6&ft=GS-jnInz7ThrCZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=ZTVoOzxnZjQ3N2hmOmZpNkBpM2pyOnk5cjRqdzMzaTgzNEAxNC8tXjEyNjIxLTNfNjVjYSMuMzZtMmRjMS1gLS1kLzJzcw%3D%3D&vvpl=1&l=202509222225077324EE27C99B4F03F16B&btag=e00088000" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/fc25237cb27c78fc4b372b1b9f5bf1ea/68d221ab/video/tos/useast8/tos-useast8-ve-0068c001-tx2/oQDQDHfhQfPznFaCYztBAdVjEQEEOIBAVxpjvX/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=7330&bt=3665&cs=0&ds=6&ft=GS-jnInz7Th4LZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=NGU7OjU8OGk8NDs8aWdmNUBpaml5M3A5cnFtdzMzaTgzNEA0LWFjYV8zNl4xYWMyYTZhYSNlLzRoMmRjZC5gLS1kLzJzcw%3D%3D&vvpl=1&l=202509222226244AFD614FBFA040041E38&btag=e00088000" allowfullscreen></iframe>
+    </div>
+
+    <!-- <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div> -->
+        <!-- <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+        <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+        <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+        <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+        <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+        <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div> -->
+
+
+    <!-- YouTube Short -->
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/1f4ea0d55090c784a89232bfa5e11296/68bc1cb0/video/tos/useast8/tos-useast8-ve-0068c004-tx2/o8TvQV2huDAft9ZuaFFuEVoglCDA4BktImfaoE/" allowfullscreen></iframe>
+    </div>
+
+    <!-- TikTok Video -->
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/4bd5ecc50439ab6ed3548ca3e92f1c91/68bc1a6e/video/tos/useast8/tos-useast8-ve-0068c001-tx2/os4CtgVDoBMpa2OFEJCzDAQrCER7fuiAwVIJeN/" allowfullscreen></iframe>
+    </div>
+
+    <!-- Regular YouTube Video -->
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/a4689866cea1c60068e1fa5cdf27aeb4/68bc1c22/video/tos/useast8/tos-useast8-ve-0068c004-tx2/o8aEA7uI4sQiEroEqFIkCAEU4D44fIAfVQBtqV/" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://v16m-default.tiktokcdn-us.com/64856b626bd427ba44f7e5b3408ed743/68bc1e79/video/tos/useast8/tos-useast8-ve-0068c002-tx2/ogCEHdDRFB8KqUriXVpTABbCe69IEVQfAo1YtE/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1856&bt=928&cs=0&ds=6&ft=GS-jnInz7ThEbtTKXq8Zmo&mime_type=video_mp4&qs=0&rc=NjZmOTw3PDU6PGc8NmVpOkBpanZvOXc5cmxvNTMzaTgzNEBiX2NgNGAzNi0xXjQwYjRjYSM2azRjMmRrMGlhLS1kLzJzcw%3D%3D&vvpl=1&l=20250906054341A80E5EC58F431140F108&btag=e000b0000
+        " allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/fdbbcb57d7fa2cf3160299ba9500f6d0/68d21e2e/video/tos/useast8/tos-useast8-pve-0068-tx2/osiEjCnKgYV7EzPCFmAQAQIDaAOVGeGBaLfDNo/" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/ff93674dc1897096fc423967375fb61f/68d21f20/video/tos/useast8/tos-useast8-pve-0068-tx2/o4ojgqMt5GAJxmdBe4LTIrOAgE1A1CvPRRevfI/" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/1596b0c63c2b085af74f7ccc26197477/68d21faa/video/tos/useast8/tos-useast8-ve-0068c002-tx2/ogkC6fPBPA7VDsTIgYhEAZBV9EIFQyfLnAsFYp/" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/9b5e88d4a27626b5f1852b092dcf9a17/68d21ffd/video/tos/useast8/tos-useast8-ve-0068c004-tx2/oMDrjQfzQY54nFNCi8eBAhV4EIEEjIDAVEUmBX/" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/809118fc881bfce89b838b4eac3432b0/68d22031/video/tos/useast8/tos-useast8-pve-0068-tx2/ok0kqIKEBDXhhAMjAifKAiQIWi9uEziB51uK8k/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=1254&bt=627&cs=0&ds=6&ft=GS-jnInz7ThDzZKKXq8Zmo&mime_type=video_mp4&qs=0&rc=N2Y6PDs2OzdlNjc1O2dlaEBpMzZndW85cjg2djMzaTgzNEAvMi82NTAtNTExMS4wLl8vYSNrYWRyMmRjLmZgLS1kLzJzcw%3D%3D&vvpl=1&l=20250922222011C308A2CBDD768C038F47&btag=e00088000" allowfullscreen></iframe>
+    </div>
+
+
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+
+
+
+    <div class="video-container">
+      <iframe src="link" allowfullscreen></iframe>
+    </div>
+    
+  </div>
+
+</body>
+</html>

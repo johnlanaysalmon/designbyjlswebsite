@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Modular Header -->
+  <div id="header-placeholder"></div>
+   <script src="header.js"></script>
+    <h1 class="page-title">Photography</h1>
+
+  <!-- Gallery Grid -->
+  <div class="gallery">
+    <!-- Repeat this block 10x with different images -->
+    <div class="overlay-container">
+      <img src="images/20221215_150507_NorthIslandDrive.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20221219_105948_snorkelingNZ.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20221223_100504_HobbitonNZ.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20221226_105736_geysersPoolNZ.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20230102_135558_egretnestNZ.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20230501_185541_HavasupaiProc57.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20230604_220833_MontStMichelProc2.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+    <div class="overlay-container">
+      <img src="images/20230702_212124_EiffelTower57.jpg" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
+    </div>
+
+    <!-- Repeat for img2.webp ... img10.webp -->
+    <!-- You can use a loop later in JS if you want -->
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+  </div>
+
+  <script src="scripts/modal.js"></script>
+</body>
+</html>

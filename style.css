@@ -34,7 +34,20 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px 20px;
-    position: relative;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between logo and title */
+}
+
+/* Optional: adjust h1 styling */
+.site-title {
+  font-size: 24px;
+  margin: 0;
+  color: white;
+  text-align: left;
 }
 
 /* Logo Container (Left) */
@@ -44,9 +57,10 @@ body {
 }
 
 .top-left-icon {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Centered Title */
@@ -185,7 +199,9 @@ button:hover {
 
 .gallery-img {
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  aspect-ratio: 16 / 9;  
+  object-fit: cover; 
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;

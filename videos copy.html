@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 80px 20px 20px; /* add top padding for fixed header */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.78%; /* 9:16 aspect ratio (Shorts, TikToks) */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <!-- your existing navbar here -->
+  </header>
+
+  <h2 class="page-title">Video Gallery</h2>
+
+  <div class="video-gallery">
+
+    <!-- YouTube Short -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/SAMPLE_ID?autoplay=0&mute=1" allowfullscreen></iframe>
+    </div>
+
+    <!-- TikTok Video -->
+    <div class="video-container">
+      <iframe src="https://v16m-default.tiktokcdn-us.com/4bd5ecc50439ab6ed3548ca3e92f1c91/68bc1a6e/video/tos/useast8/tos-useast8-ve-0068c001-tx2/os4CtgVDoBMpa2OFEJCzDAQrCER7fuiAwVIJeN/?a=1988&bti=cWxkbHZsdXdoZm53bEBscW9taytsXm8rbGhxYA%3D%3D&ch=0&cr=0&dr=0&er=0&lr=default&cd=0%7C0%7C0%7C0&cv=1&br=2222&bt=1111&cs=0&ds=6&ft=GS-jnInz7Th00tTKXq8Zmo&mime_type=video_mp4&qs=0&rc=NTRkNGhlZmg6Zzo2NTk4M0BpM2c1eG45cjZtNTMzaTgzNEAvNmBgM15hNjIxLTA1LjE2YSNiYi5uMmRjLnFhLS1kLzJzcw%3D%3D&vvpl=1&l=202509060526059757C37BB531503F3963&btag=e00088000" allowfullscreen></iframe>
+    </div>
+
+    <!-- Regular YouTube Video -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>
