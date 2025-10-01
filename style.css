@@ -185,27 +185,64 @@ button:hover {
 }
 
 /* Gallery Grid */
-.gallery {
-  margin-top: 10px;
-  display: grid;
+/* .gallery { */
+  /* margin-top: 10px; */
+  /* display: grid; */
   /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
-  grid-template-columns: repeat(2, 1fr); /* ✅ Forces 2 equal-width columns */
+   /* grid-template-columns: repeat(2, 1fr); ✅ Forces 2 equal-width columns */
+  /* gap: 20px; */
+  /* max-width: 1000px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* padding: 1px; */
+/* } */
+
+.gallery {
+  display: grid;
+  margin-top: 10px;
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1100px;
+  justify-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 1px;
+  padding: 30px 0;
 }
 
 .gallery-img {
-  width: 100%;
-  /* height: auto; */
-  aspect-ratio: 16 / 9;  
-  object-fit: cover; 
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  display: block;
+  margin: auto;
 }
+
+.overlay-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* .gallery-img { */
+  /* width: 100%; */
+  /* height: auto; */
+  /* aspect-ratio: 16 / 9;   */
+  /* object-fit: cover;  */
+  /* border-radius: 20px; */
+  /* cursor: pointer; */
+  /* transition: transform 0.2s ease-in-out; */
+/* } */
+/* .gallery-img:hover { */
+  /* transform: scale(1.03); */
+/* } */
+
 .gallery-img:hover {
   transform: scale(1.03);
 }
@@ -250,4 +287,107 @@ button:hover {
   font-size: 32px;
   color: white;
   text-align: center;
+}
+
+.splash {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.splash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(40px);
+  z-index: 0;
+}
+
+.splash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+}
+
+.splash h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+}
+
+.splash p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #ddd;
+}
+
+.enter-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 180px; /* 🔥 All buttons exactly this wide */
+  text-align: center;
+}
+.enter-button:hover {
+  background: white;
+  color: black;
+}
+
+.main-site {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+/* Slideshow container */
+.background-slideshow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Each background image */
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeBackground 18s infinite;
+}
+
+/* Fade sequence using nth-child delays */
+.bg-slide:nth-child(1) { animation-delay: 0s; }
+.bg-slide:nth-child(2) { animation-delay: 6s; }
+.bg-slide:nth-child(3) { animation-delay: 12s; }
+/* Add more delays if you add more images */
+
+@keyframes fadeBackground {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
 }

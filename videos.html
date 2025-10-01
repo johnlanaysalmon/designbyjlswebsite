@@ -10,7 +10,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      padding: 100px 20px 20px; /* extra top padding for fixed header */
+      padding: 15px 20px 20px; /* extra top padding for fixed header */
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -18,7 +18,7 @@
     .video-thumbnail {
       width: 100%;            /* always fills the grid cell width */
       height: auto;           /* keeps natural aspect ratio */
-      max-height: 220px;      /* don’t let it grow taller than 220px */
+      max-height: 300px;      /* don’t let it grow taller than 220px */
       object-fit: contain;    /* fit inside without cropping */
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -28,6 +28,34 @@
     .video-thumbnail:hover {
       transform: scale(1.05);
     }
+
+    .video-link {
+      position: relative;
+      display: block;
+    }
+    .video-link .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0);
+      opacity: 0;
+      border-radius: 45px;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      text-shadow: 0 2px 8px #000;
+    }
+    .video-link:hover .overlay,
+    .video-link:focus .overlay {
+      opacity: 1;
+      pointer-events: none;
+    }
+
+
   </style>
 </head>
 <body>
@@ -38,35 +66,219 @@
   <h1 class="page-title">Animated Stereograms</h1>
 
   <div class="video-gallery">
-    <a href="https://www.tiktok.com/@tiktokstereo/video/7553690354315267359" target="_blank">
+
+    <!-- corn -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7555654870666153247" target="_blank" class="video-link">
+      <img src="images/cornTHUMB.webp" alt="TikTok Video 1" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7553690354315267359" target="_blank" class="video-link">
       <img src="images/f117THUMB.webp" alt="TikTok Video 1" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-    <a href="https://www.tiktok.com/@tiktokstereo/video/7553690354315267359" target="_blank">
-      <img src="images/thumb2.webp" alt="TikTok Video 2" class="video-thumbnail">
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7552992069883677982" target="_blank" class="video-link">
+      <img src="images/autumnleafTHUMB.webp" alt="TikTok Video 2" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-      <img src="images/thumb2.webp" alt="YouTube Video" class="video-thumbnail">
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7551842276633267487" target="_blank" class="video-link">
+      <img src="images/batmanTHUMB.webp" alt="TikTok Video 3" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-    <a href="https://www.tiktok.com/@tiktokstereo/video/7553690354315267359" target="_blank">
-      <img src="images/thumb2.webp" alt="TikTok Video 1" class="video-thumbnail">
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7551127252445007134" target="_blank" class="video-link">
+      <img src="images/hibiscusTHUMB.webp" alt="TikTok Video 4" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-    <a href="https://www.tiktok.com/@tiktokstereo/video/7553690354315267359" target="_blank">
-      <img src="images/thumb2.webp" alt="TikTok Video 2" class="video-thumbnail">
+
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7549269216889769247" target="_blank" class="video-link">
+      <img src="images/dolphinTHUMB.webp" alt="TikTok Video 1" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7548528675038170398" target="_blank" class="video-link">
+      <img src="images/hydrantTHUMB.webp" alt="TikTok Video 2" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+
+
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7547749041879239967" target="_blank" class="video-link">
+      <img src="images/enterpriseTHUMB.webp" alt="TikTok Video 2" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7547002060517002526" target="_blank" class="video-link">
+      <img src="images/baconTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7546678714600410399" target="_blank" class="video-link">
+      <img src="images/samosaTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- squiddoll -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7544094287575698718" target="_blank" class="video-link">
+      <img src="images/squiddollTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+
+    <!-- % flag waving -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7542957699269496094" target="_blank" class="video-link">
+      <img src="images/flagTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+ <!-- pluto -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7542211805322530079" target="_blank" class="video-link">
+      <img src="images/plutoTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- baby yoda -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7539299516856552735" target="_blank" class="video-link">
+      <img src="images/babyyodaTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- elephant day -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7537709340527021325" target="_blank" class="video-link">
+      <img src="images/elephant2THUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- avocado -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7537360282885131534" target="_blank" class="video-link">
+      <img src="images/avocadoTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- books -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7536575707510557983" target="_blank" class="video-link">
       <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- spider -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7536303284647185694" target="_blank" class="video-link">
+      <img src="images/tarantulaTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- scuba -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7535546926226246942" target="_blank" class="video-link">
+      <img src="images/scubaTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- halo  -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7533703614703881502" target="_blank" class="video-link">
+      <img src="images/haloTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- surfer -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7533658169587895582" target="_blank" class="video-link">
+      <img src="images/surferTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- sphere spinup? -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7533008507390446878" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- taj mahal -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7532282530091912479" target="_blank" class="video-link">
+      <img src="images/tajmahalTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- twisted torus  -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7532278572174642463" target="_blank" class="video-link">
+      <img src="images/twisttorusTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- cubehopper -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7531877983645191454" target="_blank" class="video-link">
+      <img src="images/cubehopperTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- camo tank -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7531476918919499039" target="_blank" class="video-link">
+      <img src="images/tankTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- armstrong -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7529519499486186783" target="_blank" class="video-link">
+      <img src="images/armstrongTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- nautilus -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7528439605339671839" target="_blank" class="video-link">
+      <img src="images/nautilusTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- superman -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7524774214188944670" target="_blank" class="video-link">
+      <img src="images/supermanTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- fourthofjuly -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7522300264515194142" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- oh canada -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7522122345700478238" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- moving stars  -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7516948308678561054" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- sydney opera house -->
+    <!-- <a href="https://www.tiktok.com/@tiktokstereo/video/7515993212532706591" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- cubes with qbert
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7512440830703979806" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
+<!-- pepper -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7509653088748293407" target="_blank" class="video-link">
+      <img src="images/pepperTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- binocs -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7545934036980518175" target="_blank" class="video-link">
+      <img src="images/binocs2THUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
     </a>
 
-
-
-
+<!-- mahjong -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7533286580862094623" target="_blank" class="video-link">
+      <img src="images/mahjongTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- frog -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7499155427989540126" target="_blank" class="video-link">
+      <img src="images/frogTHUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+<!-- eagle -->
+    <a href="https://www.tiktok.com/@tiktokstereo/video/7502491181931187502" target="_blank" class="video-link">
+      <img src="images/eagle2025THUMB.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a>
+    <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-link">
+      <img src="images/thumb3.webp" alt="YouTube Video" class="video-thumbnail">
+      <span class="overlay">Click to <br>play video</span>
+    </a> -->
 
   </div>
+
+      <footer>
+        <p>&copy; 2025 Design By JLS </p>
+    </footer>
+
+    <div style="height: 40px;"></div>
+
 </body>
 </html>
 
