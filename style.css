@@ -26,6 +26,19 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* .navbar {
+    --header-height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} */
+
+
 /* Flex Layout for Navbar */
 .navbar-content {
     display: flex;
@@ -36,11 +49,22 @@ body {
     padding: 10px 20px;
 }
 
+/* .logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+} */
+
 .logo-title {
   display: flex;
   align-items: center;
-  gap: 12px; /* space between logo and title */
+  gap: 12px;
+  text-decoration: none; /* removes underline */
+  color: inherit;        /* keeps same text color */
+  cursor: pointer;
 }
+
+
 
 /* Optional: adjust h1 styling */
 .site-title {
@@ -360,34 +384,106 @@ button:hover {
   text-align: center;
 }
 
-/* Slideshow container */
-.background-slideshow {
+.hero-section {
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-section .background-slideshow {
   position: absolute;
   inset: 0;
-  overflow: hidden;
   z-index: 0;
 }
 
-/* Each background image */
-.bg-slide {
+.hero-section .bg-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
+  background-size: contain; /* try 'cover' for full frame fit */
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: black;
   opacity: 0;
-  animation: fadeBackground 18s infinite;
+  animation: fadeBackground 29s linear infinite;
 }
 
-/* Fade sequence using nth-child delays */
-.bg-slide:nth-child(1) { animation-delay: 0s; }
-.bg-slide:nth-child(2) { animation-delay: 6s; }
-.bg-slide:nth-child(3) { animation-delay: 12s; }
-/* Add more delays if you add more images */
+.hero-section .bg-slide:nth-child(1) { animation-delay: 0s; }
+.hero-section .bg-slide:nth-child(2) { animation-delay: 5s; }
+.hero-section .bg-slide:nth-child(3) { animation-delay: 10s; }
+.hero-section .bg-slide:nth-child(4) { animation-delay: 15s; }
+.hero-section .bg-slide:nth-child(5) { animation-delay: 20s; }
+.hero-section .bg-slide:nth-child(6) { animation-delay: 25s; }
 
 @keyframes fadeBackground {
   0%   { opacity: 0; }
-  10%  { opacity: 1; }
-  30%  { opacity: 1; }
-  40%  { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
   100% { opacity: 0; }
+}
+
+/* Dark overlay over slideshow for better text contrast */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);  /* adjust alpha (0.3–0.6) for brightness */
+  z-index: 1;                       /* sits above slideshow */
+}
+
+
+/* Overlayed text and buttons */
+.hero-content {
+  position: relative;
+  z-index: 2;              /* sits above slideshow */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Title text */
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Subtitle text */
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: row;   /* ✅ ensures buttons go horizontally */
+  justify-content: center; /* ✅ centers them horizontally */
+  align-items: center;
+  gap: 20px;             /* spacing between buttons */
+  flex-wrap: wrap;       /* allows wrapping on small screens */
+}
+
+.hero-btn {
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  width: 180px;          /* ✅ same width for all buttons */
+  text-align: center;    /* ✅ keep text centered */
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+  background-color: white;
+  color: black;
 }
