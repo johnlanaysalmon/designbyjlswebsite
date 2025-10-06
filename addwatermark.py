@@ -31,9 +31,10 @@ def load_image_with_exif_orientation(path):
 
 
 # --- Settings ---
-source_folder = "C:/tmp/photography"
+# source_folder = "C:/tmp/photography"
+source_folder = "C:/tmp/photography/horilocal"
 
-output_folder = "C:/tmp/JLSwebsite/designbyjlswebsite/images/photography"  # your watermark image with transparency
+output_folder = "C:/tmp/JLSwebsite/designbyjlswebsite/images/hori"  # your watermark image with transparency
 
 watermark_path = "C:/tmp/JLSwebsite/designbyjlswebsite/images/DesignByJLS_Logo_v3.png"  # your watermark image with transparency
 watermark = cv2.imread(watermark_path, cv2.IMREAD_UNCHANGED)  # shape: (H, W, 4) or (H, W, 3)
@@ -50,7 +51,7 @@ black_mask = (r < 20) & (g < 20) & (b < 20)
 a[black_mask] = 0
 # Merge updated channels
 watermark = cv2.merge([b, g, r, a])
-scale_height_ratio = 0.10  # watermark height = 10% of image
+scale_height_ratio = 0.06  # watermark height = 10% of image
 padding = 10  # padding from edges
 valid_extensions = {".jpg", ".jpeg", ".png", ".webp"}
 
@@ -73,6 +74,7 @@ random.shuffle(all_filenames)
 
 for filename in all_filenames:
 # for filename in sorted(os.listdir(source_folder)):
+    print(f"Processing: {filename}")
     ext = os.path.splitext(filename)[1].lower()
     if ext not in valid_extensions:
         continue
@@ -108,7 +110,7 @@ for filename in all_filenames:
     wm_bgr = wm_resized[:, :, :3]
     wm_alpha = wm_resized[:, :, 3] / 255.0  # Normalize to [0, 1]
 
-    opacity_scale = 0.5  # adjust between 0 (invisible) to 1.0 (fully opaque)
+    opacity_scale = 0.3  # adjust between 0 (invisible) to 1.0 (fully opaque)
     wm_alpha = (wm_resized[:, :, 3] / 255.0) * opacity_scale
 
     # Region of Interest (bottom-right)
@@ -138,10 +140,17 @@ for filename in all_filenames:
     # Generate HTML
     web_path = os.path.join("images", "photography", filename).replace("\\", "/")
     alt_text = os.path.splitext(filename)[0]
-    html = f'''    <div class="overlay-container">
-      <img src="{web_path}" alt="{alt_text}" class="gallery-img" onclick="openModal(this.src)">
+    # html = f'''    <div class="overlay-container">
+    #   <img src="{web_path}" alt="{alt_text}" class="gallery-img" onclick="openModal(this.src)">
+    # </div>'''
+
+    html = f'''<div class="overlay-container">
+      <img src="{web_path}" alt="Gallery 1" class="gallery-img" onclick="openModal(this.src)">
     </div>'''
+
     html_lines.append(html)
+
+
 
 # Output HTML block
 output_html = "\n".join(html_lines)

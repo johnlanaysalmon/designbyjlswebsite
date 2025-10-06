@@ -487,3 +487,78 @@ button:hover {
   background-color: white;
   color: black;
 }
+
+.project-thumbnail {
+  max-height: 260px;          /* ✅ Set consistent max height */
+  width: auto;                /* ✅ Keep original proportions */
+  object-fit: contain;        /* ✅ Fit the image inside box w/o cropping */
+  border-radius: 15px;        /* ✅ Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;             /* ✅ Center image horizontally */
+}
+
+.project-thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+.project-link h2 {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.project-link:hover h2 {
+  opacity: 0.8;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* responsive grid */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.project-link {
+  text-decoration: none;   /* ✅ removes underline */
+  color: inherit;          /* ✅ keeps text color consistent */
+}
+
+.project-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.project-thumbnail {
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;     /* ✅ shows full image */
+  border-radius: 15px;
+  display: block;
+  margin: 10px auto 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover .project-thumbnail {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+.project-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
