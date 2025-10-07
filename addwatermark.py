@@ -31,10 +31,11 @@ def load_image_with_exif_orientation(path):
 
 
 # --- Settings ---
-# source_folder = "C:/tmp/photography"
-source_folder = "C:/tmp/photography/horilocal"
+source_folder = "C:/tmp/photography"
+# source_folder = "C:/tmp/photography/horilocal"
 
-output_folder = "C:/tmp/JLSwebsite/designbyjlswebsite/images/hori"  # your watermark image with transparency
+# output_folder = "C:/tmp/JLSwebsite/designbyjlswebsite/images/hori"  # your watermark image with transparency
+output_folder = "C:/tmp/JLSwebsite/designbyjlswebsite/images/photography"  # your watermark image with transparency
 
 watermark_path = "C:/tmp/JLSwebsite/designbyjlswebsite/images/DesignByJLS_Logo_v3.png"  # your watermark image with transparency
 watermark = cv2.imread(watermark_path, cv2.IMREAD_UNCHANGED)  # shape: (H, W, 4) or (H, W, 3)
@@ -100,11 +101,15 @@ for filename in all_filenames:
 
     h_img, w_img = image.shape[:2]
 
-    # Resize watermark to 10% of image height
-    wm_height = int(h_img * scale_height_ratio)
-    wm_ratio = watermark.shape[1] / watermark.shape[0]
-    wm_width = int(wm_height * wm_ratio)
+    # Resize watermark to 10% of the smaller dimension (height or width)
+    scale_ratio = min(h_img / watermark.shape[0], w_img / watermark.shape[1]) * 0.10
+    wm_height = int(watermark.shape[0] * scale_ratio)
+    wm_width = int(watermark.shape[1] * scale_ratio)
     wm_resized = cv2.resize(watermark, (wm_width, wm_height), interpolation=cv2.INTER_AREA)
+    # wm_height = int(h_img * scale_height_ratio)
+    # wm_ratio = watermark.shape[1] / watermark.shape[0]
+    # wm_width = int(wm_height * wm_ratio)
+    # wm_resized = cv2.resize(watermark, (wm_width, wm_height), interpolation=cv2.INTER_AREA)
 
     # Split watermark channels
     wm_bgr = wm_resized[:, :, :3]

@@ -10,33 +10,101 @@
 
     <div id="header-placeholder"></div>
     <script src="header.js"></script>
-    <h1 class="page-title">Contact Information</h1>
+    <!-- <h1 class="page-title">Contact Information</h1> -->
 
-    <!-- <header>
-        <div class="icon-container">
-            <img src="images/DesignByJLS_Logo_v3.png" alt="Icon" class="top-left-icon">
-        </div>
-        <h1>Contact Me</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="icon-container">
-            <img src="images/DesignByJLS_Logo_v3.png" alt="Icon" class="top-left-icon">
-        </div>
-        <div class="top-right-image">
-            <img src="images/header-image.png" alt="Header Image">
-        </div>
-    </header> -->
-    <div style="height: 30px;"></div>
-    <section class="contact-info">
-        <!-- <h2>Contact Information</h2> -->
-        <p>Email: jlsalmon@gmail.com</p>
-    </section>
+<section class="contact-section">
+  <h2>Contact Me</h2>
+  <p>Have a question or want to collaborate? Email me directly:</p>
+  <form action="https://formspree.io/f/mldpwgzq" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <!-- Optional hidden subject -->
+    <input type="hidden" name="_subject" value="New message from Design By JLS website">
+
+    <button type="submit">Send Message</button>
+
+    <!-- Confirmation message -->
+    <p id="form-status" class="form-status"></p>
+  </form>
+</section>
+
+
+<style>.contact-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: black;
+  padding: 60px 20px;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contact-section p {
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #66aaff;
+}
+
+.contact-form button {
+  padding: 12px 24px;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+  background: white;
+  color: black;
+}
+
+.form-status {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #66ff99;
+  margin-top: 10px;
+}
+
+</style>
+
+
+
 
 
     <div style="height: 500px;"></div>
@@ -44,5 +112,28 @@
         &copy; 2025 Design By JLS   
     </footer>
     <div style="height: 40px;"></div>
+
+<script>
+const form = document.querySelector(".contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+  if (response.ok) {
+    status.textContent = "Message sent successfully!";
+    form.reset();
+  } else {
+    status.textContent = "Oops! There was a problem sending your message.";
+  }
+});
+</script>
+
+
 </body>
 </html>
