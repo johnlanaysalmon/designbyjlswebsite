@@ -3,103 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design By JLS Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', Trebuchet MS, sans-serif;
+            line-height: 1.6;
+            background: #000000;
+            color: #ffffff;
+            padding-top: 0px;
+        }
+
+        /* Header Styles */
+        header {
+            background: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-logo {
+        height: 40px;          /* 👈 Adjust logo size here */
+        width: auto;           /* keeps aspect ratio */
+        display: block;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.8;
+        }
+
+        .site-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 200px;
+            height: 100vh;
+            background: #000000;
+            box-shadow: -2px 0 10px rgba(255,255,255,0.1);
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu nav ul li {
+            border-bottom: 1px solid #333333;
+        }
+
+        .mobile-menu nav ul li a {
+            display: block;
+            padding: 1rem 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu nav ul li a:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Main Content */
+        main {
+            padding: 0rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 1rem 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-items: center;
+            column-gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid #ffffff;
+            background: transparent;
+            text-decoration: none; 
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 200px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        @media (min-width: 480px) {
+            .button-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .button-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .site-name {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .site-name {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            color: white;
+            background-color: #000; /* or your site’s background */
+            font-size: 0.9rem;
+        }
+
+        .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        }
+
+        .social-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        .social-links a {
+        color: white;
+        font-size: 1.3rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+        color: #ff4081; /* change hover color if you like */
+        transform: scale(1.2);
+        }
+
+
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <!-- <div class="logo-section"> -->
+                <!-- <div class="logo">M</div> -->
+                <!-- <div class="icon-container">
+                    <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="top-left-icon">
+                </div> -->
+                <!-- <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="header-logo">
 
-    <div id="header-placeholder"></div>
-    <script src="header.js"></script>
+                <div class="site-name">Design By JLS</div>
+            </div> -->
+
+            <div class="logo-section">
+                <a href="index.html" class="logo-link">
+                    <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="header-logo">
+                    <div class="site-name">Design By JLS</div>
+                </a>
+            </div>
 
 
-    <section class="hero-section">
-        <div class="background-slideshow">
-            <div class="bg-slide" style="background-image: url('images/hori/astronaut_img_0_1740278876.webp');"></div>
-            <div class="bg-slide" style="background-image: url('images/hori/airbus345_img_1_1739422170.webp');"></div>
-            <div class="bg-slide" style="background-image: url('images/photography/20231031_095834.jpg');"></div>
-            <div class="bg-slide" style="background-image: url('images/hori/f117_img_1_.webp');"></div>
-            <div class="bg-slide" style="background-image: url('images/hori/angkorwat.webp');"></div>
-            <!-- <div class="bg-slide" style="background-image: url('images/hori/babyyoda_img_251_.webp');"></div> -->
-            <div class="bg-slide" style="background-image: url('images/photography/20230501_185541_HavasupaiProc57crop.jpg');"></div>
-            <!-- Add more if needed -->
-        </div>
-
-        <div class="hero-content">
-            <h1>Design By JLS</h1>
-            <p>Visual Illusions & Photography</p>
-            <!-- <br><br> -->
-            <!-- <a href="#main-site"><button class="enter-button">Enter</button></a>
-            <div class="splash-buttons"> -->
-                <div class="hero-buttons">
-                    <a href="gallery.html"><button class="hero-btn">Photography</button></a>
-                    <a href="stereograms.html"><button class="hero-btn">Stereograms</button></a>
-                    <a href="videos.html"><button class="hero-btn">Animations</button></a>
-                    <a href="projects.html"><button class="hero-btn">Other</button></a>
-                    
+            <div class="header-right">
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@tiktokstereo" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@3D-Stereogram-YouTube" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/stereo_insta" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+                
         </div>
-    </section>
+    </header>
 
-    <!-- <div id="main-site" class="main-site"> -->
-    <!-- Your actual home page content starts here (e.g., gallery, projects, etc.) -->
-    <!-- <h2>Welcome to My Work</h2>
-    <p>Scroll down to explore photography, generative art, and interactive design.</p>
-    </div> -->
-
-
-
-    <!-- <header>
-        <div class="icon-container">
-            <img src="images/DesignByJLS_Logo_v3.png" alt="Icon" class="top-left-icon">
-        </div>
-        <h1>Design By JLS</h1>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
         <nav>
             <ul>
-                <li><a href="index.html" class="active-link">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="stereogramvideos.html">Videos</a></li>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="stereograms.html">Stereograms</a></li>
+                <li><a href="gallery.html">Photography</a></li>
+                <li><a href="videos.html">Animations</a></li>
+                <li><a href="projects.html">Other</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-    </header> -->
+    </div>
 
-    <!-- <section class="hero">
-        <h2>Welcome to My Website</h2>
-    </section> -->
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
-    <!-- <section class="content2">
-        <h3>IN Construction</h3>
-        <p>This is a bunch of text.</p>
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h1>Design By JLS</h1>
+            <p>Visual Illusions & Photography</p>
+            <div class="button-container">
+                <!-- <button class="btn">Stereograms</button> -->
+                <a href="stereograms.html" class="btn">Stereograms</a>
+                <a href="gallery.html" class="btn">Photography</a>
+                <a href="videos.html" class="btn">Animations</a>
+                <a href="projects.html" class="btn">Other</a>
+            </div>
+        </section>
+    </main>
+                    <!-- <a href="gallery.html"><button class="hero-btn">Photography</button></a>
+                    <a href="stereograms.html"><button class="hero-btn">Stereograms</button></a>
+                    <a href="videos.html"><button class="hero-btn">Animations</button></a>
+                    <a href="projects.html"><button class="hero-btn">Other</button></a> -->
+                    
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
 
-    </section> -->
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
 
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
 
-    <!-- <section class="content">
-        <h3>About Me</h3>
-        <p>This is a bunch of text.</p>
-        <p>This is a bunch of text.</p>
-    </section>
-    <p>This is a bunch of text.</p> -->
+        // Close menu when clicking a link
+        const menuLinks = document.querySelectorAll('.mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
 
-      <footer>
+        // Background image rotation
+        const heroSection = document.querySelector('.hero');
+        const backgroundImages = [
+            'images/hori/astronaut_img_0_1740278876.webp',
+            'images/hori/airbus345_img_1_1739422170.webp',
+            'images/photography/20231031_095834.jpg',
+            'images/hori/f117_img_1_.webp',
+            'images/hori/angkorwat.webp',
+            'images/photography/20230501_185541_HavasupaiProc57crop.jpg',
+            // 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80',
+
+        ];
+
+            // <div class="bg-slide" style="background-image: url('images/hori/astronaut_img_0_1740278876.webp');"></div>
+            // <div class="bg-slide" style="background-image: url('images/hori/airbus345_img_1_1739422170.webp');"></div>
+            // <div class="bg-slide" style="background-image: url('images/photography/20231031_095834.jpg');"></div>
+            // <div class="bg-slide" style="background-image: url('images/hori/f117_img_1_.webp');"></div>
+            // <div class="bg-slide" style="background-image: url('images/hori/angkorwat.webp');"></div>
+            // <!-- <div class="bg-slide" style="background-image: url('images/hori/babyyoda_img_251_.webp');"></div> -->
+            // <div class="bg-slide" style="background-image: url('images/photography/20230501_185541_HavasupaiProc57crop.jpg');"></div>
+
+        
+        let currentImageIndex = 0;
+        
+        function rotateBackground() {
+            heroSection.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        }
+        
+        // Set initial background
+        rotateBackground();
+        
+        // Rotate every 5 seconds
+        setInterval(rotateBackground, 3000);
+    </script>
+
+    <footer>
         <p>&copy; 2025 Design By JLS </p>
     </footer>
 
     <div style="height: 40px;"></div>
-
-    <!-- <section class="vertical-align">
-
-        <canvas id="circleCanvas" width="200" height="200"></canvas>
-        
-        Button to Start/Stop Rotation
-        <button id="toggleButton">Pause Rotation</button>
-
-        <script src="circle.js"></script>
-        
-    </section> -->
-
 
 
 </body>

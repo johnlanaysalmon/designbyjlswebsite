@@ -1,28 +1,47 @@
-<header class="navbar">
-  <div class="navbar-content">
-    <!-- Left: Logo -->
-    <!-- <div class="logo-title">
-      <img src="images/DesignByJLS_Logo_v3.png" alt="Icon" class="top-left-icon">
-      <h1 class="site-title">Design By JLS</h1>
-    </div> -->
-
-    <a href="index.html" class="logo-title">
-      <div class="icon-container">
-        <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="top-left-icon">
+<header>
+  <div class="header-container">
+      <div class="logo-section">
+          <a href="index.html" class="logo-link">
+              <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="header-logo">
+              <div class="site-name">Design By JLS</div>
+          </a>
       </div>
-      <h1 class="site-title">Design By JLS</h1>
-    </a>
-    
 
+    <div class="header-right">
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@tiktokstereo" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.youtube.com/@3D-Stereogram-YouTube" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/stereo_insta" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
 
-    <!-- Right: Links -->
-    <nav class="navbar-links">
-      <a href="index.html">Home</a>
-      <a href="stereograms.html">Stereograms</a>
-      <a href="videos.html">Videos</a>
-      <a href="gallery.html">Photography</a>
-      <a href="projects.html">Other</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <ul>
+      <li><a href="index2.html">Home</a></li>
+      <li><a href="stereograms.html">Stereograms</a></li>
+      <li><a href="gallery.html">Photography</a></li>
+      <li><a href="videos.html">Animations</a></li>
+      <li><a href="projects.html">Other</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>

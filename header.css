@@ -1,0 +1,228 @@
+/* ===============================
+   HEADER + NAVBAR STYLES
+   Works for both desktop & mobile
+   =============================== */
+
+/* General header container */
+header {
+  position: fixed;              
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;            /* ✅ keeps everything centered */
+  margin: 0 auto;               /* ✅ centers it horizontally */
+  padding: 0.5rem 1.5rem;       /* ✅ keeps spacing from edges */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* tweak this for visual balance */
+}
+
+/* Logo + site name */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+
+.header-logo {
+  height: 40px;   /* Adjust for desired size */
+  width: auto;
+  display: block;
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Right section (socials + hamburger) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Social media icons */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff4081; /* Accent hover color */
+  transform: scale(1.2);
+}
+
+/* Hamburger button */
+.hamburger {
+  display: flex; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  /* gap: 5px; */
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate hamburger → X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile menu (slide-in from right) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 240px;
+  height: 100vh;
+  background: #000000;
+  box-shadow: -2px 0 10px rgba(255, 255, 255, 0.1);
+  transition: right 0.3s ease;
+  padding-top: 80px;
+  z-index: 999;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu nav ul li {
+  border-bottom: 1px solid #333;
+}
+
+.mobile-menu nav ul li a {
+  display: block;
+  padding: 1rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.mobile-menu nav ul li a:hover {
+  background: #1a1a1a;
+}
+
+/* Dark overlay behind open menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   =============================== */
+@media (max-width: 900px) {
+  /* Show hamburger, hide desktop nav */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Adjust header spacing */
+  .header-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .site-name {
+    font-size: 1.3rem;
+  }
+
+  .header-logo {
+    height: 36px;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+  }
+
+  /* Optional: adjust spacing between logo and menu */
+  .header-right {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-name {
+    font-size: 1.1rem;
+  }
+
+  .header-logo {
+    height: 32px;
+  }
+
+  .social-links a {
+    font-size: 1.1rem;
+  }
+}

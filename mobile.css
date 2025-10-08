@@ -1,0 +1,291 @@
+/* Mobile Styles - Apply for screens 768px and below */
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile Typography */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0.875rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0.75rem 0;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+/* Mobile Container and Layout */
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Mobile Navigation */
+nav {
+  width: 100%;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+nav li {
+  width: 100%;
+}
+
+nav a {
+  display: block;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hamburger Menu Button */
+.mobile-menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu {
+  display: none;
+  width: 100%;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+/* Mobile Buttons */
+button,
+.btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Forms */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Mobile Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Cards on Mobile */
+.card {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Grid - Stacks vertically */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Touch-friendly Spacing */
+.clickable,
+a,
+button {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Header */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* Mobile Footer */
+footer {
+  width: 100%;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Hide Desktop Elements on Mobile */
+.desktop-only {
+  display: none !important;
+}
+
+.mobile-only {
+  display: block;
+}
+
+/* Mobile Utilities */
+.text-center-mobile {
+  text-align: center;
+}
+
+.full-width-mobile {
+  width: 100%;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+/* Prevent Zoom on Input Focus (iOS) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove Tap Highlight on Mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Modal on Mobile */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Safe Area for Notched Devices */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Specific Media Queries for Fine-tuning */
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile-specific elements on larger screens */
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block !important;
+  }
+}
