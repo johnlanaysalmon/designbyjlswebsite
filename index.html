@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Design By JLS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,7 +17,6 @@
             line-height: 1.6;
             background: #000000;
             color: #ffffff;
-            padding-top: 0px;
         }
 
         /* Header Styles */
@@ -38,28 +38,15 @@
         }
 
         .header-logo {
-        height: 40px;          /* 👈 Adjust logo size here */
-        width: auto;           /* keeps aspect ratio */
-        display: block;
+            height: 40px;
+            width: auto;
+            display: block;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
         }
 
         .logo-link {
@@ -78,6 +65,29 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #ffffff;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff4081;
+            transform: scale(1.2);
         }
 
         /* Hamburger Menu */
@@ -104,7 +114,7 @@
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: translateY(11px) rotate(45deg);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -112,7 +122,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-11px) rotate(-45deg);
         }
 
         /* Mobile Menu */
@@ -214,6 +224,17 @@
             z-index: 2;
         }
 
+        .hero.loading::after {
+            content: 'Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            z-index: 3;
+        }
+
         .hero h1 {
             font-size: 2.5rem;
             color: #ffffff;
@@ -227,13 +248,12 @@
         }
 
         .button-container {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            justify-items: center;
-            column-gap: 0.5rem;
+            justify-content: center;
         }
 
         .btn {
@@ -247,8 +267,17 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            max-width: 200px;
-            width: 100%;
+            width: 200px;
+            flex: 0 0 200px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        @media (min-width: 900px) {
+            .button-container {
+                max-width: 1000px;
+                flex-wrap: nowrap;
+            }
         }
 
         .btn:hover {
@@ -256,16 +285,13 @@
             color: #000000;
         }
 
-        @media (min-width: 480px) {
-            .button-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 900px) {
-            .button-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            color: white;
+            background-color: #000;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
@@ -274,14 +300,16 @@
                 font-size: 1.2rem;
             }
 
-            .logo {
-                width: 40px;
-                height: 40px;
-                font-size: 1.25rem;
-            }
-
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .social-links {
+                gap: 8px;
+            }
+
+            .social-links a {
+                font-size: 1.1rem;
             }
         }
 
@@ -291,13 +319,11 @@
             }
 
             .site-name {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
-            .logo {
-                width: 35px;
+            .header-logo {
                 height: 35px;
-                font-size: 1rem;
             }
 
             .hero h1 {
@@ -308,78 +334,23 @@
                 font-size: 1rem;
             }
 
+            .social-links a {
+                font-size: 1rem;
+            }
         }
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            color: white;
-            background-color: #000; /* or your site’s background */
-            font-size: 0.9rem;
-        }
-
-        .header-right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        }
-
-        .social-links {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        }
-
-        .social-links a {
-        color: white;
-        font-size: 1.3rem;
-        transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-        color: #ff4081; /* change hover color if you like */
-        transform: scale(1.2);
-        }
-
-
     </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3ZGXQKYL3"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-W3ZGXQKYL3');
-    </script>
-
 </head>
-
 
 <body>
     <!-- Header -->
     <header>
         <div class="header-container">
-            <!-- <div class="logo-section"> -->
-                <!-- <div class="logo">M</div> -->
-                <!-- <div class="icon-container">
-                    <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="top-left-icon">
-                </div> -->
-                <!-- <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="header-logo">
-
-                <div class="site-name">Design By JLS</div>
-            </div> -->
-
             <div class="logo-section">
                 <a href="index.html" class="logo-link">
                     <img src="images/DesignByJLS_Logo_v3.png" alt="Design By JLS Logo" class="header-logo">
                     <div class="site-name">Design By JLS</div>
                 </a>
             </div>
-
 
             <div class="header-right">
                 <div class="social-links">
@@ -394,13 +365,12 @@
                     </a>
                 </div>
 
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-                
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -408,7 +378,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <nav>
             <ul>
-                <li><a href="index2.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="stereograms.html">Stereograms</a></li>
                 <li><a href="gallery.html">Photography</a></li>
                 <li><a href="videos.html">Animations</a></li>
@@ -423,11 +393,10 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
+        <section class="hero loading">
             <h1>Design By JLS</h1>
             <p>Visual Illusions & Photography</p>
             <div class="button-container">
-                <!-- <button class="btn">Stereograms</button> -->
                 <a href="stereograms.html" class="btn">Stereograms</a>
                 <a href="gallery.html" class="btn">Photography</a>
                 <a href="videos.html" class="btn">Animations</a>
@@ -435,11 +404,11 @@
             </div>
         </section>
     </main>
-                    <!-- <a href="gallery.html"><button class="hero-btn">Photography</button></a>
-                    <a href="stereograms.html"><button class="hero-btn">Stereograms</button></a>
-                    <a href="videos.html"><button class="hero-btn">Animations</button></a>
-                    <a href="projects.html"><button class="hero-btn">Other</button></a> -->
-                    
+
+    <footer>
+        <p>&copy; 2025 Design By JLS</p>
+    </footer>
+
     <script>
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -460,7 +429,7 @@
             link.addEventListener('click', toggleMenu);
         });
 
-        // Background image rotation
+        // Background image rotation with preloading
         const heroSection = document.querySelector('.hero');
         const backgroundImages = [
             'images/hori/astronaut_img_0_1740278876.webp',
@@ -469,39 +438,51 @@
             'images/hori/f117_img_1_.webp',
             'images/hori/angkorwat.webp',
             'images/photography/20230501_185541_HavasupaiProc57crop.jpg',
-            // 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80',
-
         ];
 
-            // <div class="bg-slide" style="background-image: url('images/hori/astronaut_img_0_1740278876.webp');"></div>
-            // <div class="bg-slide" style="background-image: url('images/hori/airbus345_img_1_1739422170.webp');"></div>
-            // <div class="bg-slide" style="background-image: url('images/photography/20231031_095834.jpg');"></div>
-            // <div class="bg-slide" style="background-image: url('images/hori/f117_img_1_.webp');"></div>
-            // <div class="bg-slide" style="background-image: url('images/hori/angkorwat.webp');"></div>
-            // <!-- <div class="bg-slide" style="background-image: url('images/hori/babyyoda_img_251_.webp');"></div> -->
-            // <div class="bg-slide" style="background-image: url('images/photography/20230501_185541_HavasupaiProc57crop.jpg');"></div>
-
-        
         let currentImageIndex = 0;
-        
-        function rotateBackground() {
-            heroSection.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
-            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        let imagesLoaded = false;
+
+        // Preload all images
+        function preloadImages() {
+            let loadedCount = 0;
+            backgroundImages.forEach((src) => {
+                const img = new Image();
+                img.onload = () => {
+                    loadedCount++;
+                    if (loadedCount === backgroundImages.length) {
+                        imagesLoaded = true;
+                        startRotation();
+                    }
+                };
+                img.onerror = () => {
+                    loadedCount++;
+                    if (loadedCount === backgroundImages.length) {
+                        imagesLoaded = true;
+                        startRotation();
+                    }
+                };
+                img.src = src;
+            });
         }
-        
-        // Set initial background
-        rotateBackground();
-        
-        // Rotate every 5 seconds
-        setInterval(rotateBackground, 3000);
+
+        function rotateBackground() {
+            if (imagesLoaded) {
+                heroSection.style.backgroundImage = `url('${backgroundImages[currentImageIndex]}')`;
+                currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+            }
+        }
+
+        function startRotation() {
+            heroSection.classList.remove('loading');
+            // Set initial background
+            rotateBackground();
+            // Rotate every 3 seconds
+            setInterval(rotateBackground, 3000);
+        }
+
+        // Start preloading images
+        preloadImages();
     </script>
-
-    <footer>
-        <p>&copy; 2025 Design By JLS </p>
-    </footer>
-
-    <div style="height: 40px;"></div>
-
-
 </body>
 </html>
